@@ -9,4 +9,6 @@
     <arg name="basepath" value="."/>
     <arg name="extensions" value="php"/>
     <file>src</file>
+    <file>bundle</file>
+    <file>tests</file>
 </ruleset>

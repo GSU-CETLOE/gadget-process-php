@@ -11,6 +11,13 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class GadgetProcessExtension extends Extension
 {
+    /**
+     * Registers every class under src/ as an autowired service.
+     *
+     * @param mixed[] $configs
+     * @param ContainerBuilder $container
+     * @return void
+     */
     public function load(
         array $configs,
         ContainerBuilder $container

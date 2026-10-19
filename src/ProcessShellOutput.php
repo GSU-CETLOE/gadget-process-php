@@ -7,6 +7,10 @@ namespace Gadget\Process;
 class ProcessShellOutput
 {
     /**
+     * Combines several outputs into one that forwards every message to all of
+     * them. The combined output passes messages through untouched so that each
+     * member applies its own trim setting.
+     *
      * @param self[] $outputs
      * @return self
      */
@@ -16,7 +20,8 @@ class ProcessShellOutput
             fn(string $type, string $message): mixed => array_map(
                 fn(self $o): mixed => $o->__invoke($type, $message),
                 $outputs
-            )
+            ),
+            false
         );
     }
 
